@@ -46,9 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MortarController.cs" />
-     <Compile Include="Assets\Text.cs" />
-     <Compile Include="Assets\TextGui.cs" />
+     <Compile Include="Assets\Scripts\MortarControl.cs" />
+     <Compile Include="Assets\Scripts\TextGui.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
