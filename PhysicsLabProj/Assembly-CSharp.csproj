@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\LegRotation.cs" />
      <Compile Include="Assets\Scripts\MortarControl.cs" />
      <Compile Include="Assets\Scripts\TextGui.cs" />
  <Reference Include="UnityEngine.UI">
