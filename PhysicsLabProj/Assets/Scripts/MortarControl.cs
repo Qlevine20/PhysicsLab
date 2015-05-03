@@ -5,7 +5,7 @@ using UnityEngine.UI; //required when using UI elements
 public class MortarControl : MonoBehaviour {
 
 	public float angle_z = 45.0f;
-	public float angle_y = 0.0f;
+	public float angle_y = 0.1f;
 	public float max_y = 90.0f;
 	public float max_z = 90.0f;
 	public float min_y = 0.0f;
@@ -35,7 +35,8 @@ public class MortarControl : MonoBehaviour {
 
 			angle_y = (input_y.gameObject.GetComponent<TextGui>().GuiText);
 			angle_z = (input_z.gameObject.GetComponent<TextGui>().GuiText);
-			if (angle_y < max_y && angle_z < max_z && angle_y < min_y && angle_z < min_z){
+			if (angle_y < max_y && angle_z < max_z && angle_y >= min_y && angle_z >= min_z){
+
 			this.transform.rotation = Quaternion.identity;
 			transform.RotateAround (start_position, Vector3.left, angle_z);
 			prev_y = input_y.text;
