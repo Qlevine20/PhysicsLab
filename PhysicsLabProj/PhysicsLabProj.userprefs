@@ -1,8 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TextGui.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MortarControl.cs">
     <Files>
-      <File FileName="Assets\Scripts\MortarControl.cs" Line="25" Column="2" />
+      <File FileName="Assets\Scripts\MortarControl.cs" Line="12" Column="28" />
       <File FileName="Assets\Scripts\TextGui.cs" Line="22" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>

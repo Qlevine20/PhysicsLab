@@ -6,9 +6,14 @@ public class MortarControl : MonoBehaviour {
 
 	public float angle_z = 45.0f;
 	public float angle_y = 0.0f;
+	public float max_y = 90.0f;
+	public float max_z = 90.0f;
+	public float min_y = 0.0f;
+	public float min_z = 0.0f;
 	public Vector3 start_force;
 	public InputField input_y;
 	public InputField input_z;
+	private Vector3 start_position;
 
 
 	//for tracking previous inputs
@@ -17,21 +22,30 @@ public class MortarControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		start_position = this.transform.position;
 		prev_y = input_y.text;
 		prev_z = input_z.text;
+		transform.RotateAround (this.transform.position, Vector3.zero, angle_z);
 	}
 
 	//getting the data from inside the textbox
 
 	void LateUpdate () {
 		if ((input_y.text != prev_y || input_z.text != prev_z) && Input.GetKey(KeyCode.Return)) {
+
 			angle_y = (input_y.gameObject.GetComponent<TextGui>().GuiText);
 			angle_z = (input_z.gameObject.GetComponent<TextGui>().GuiText);
-			transform.Rotate (new Vector3 (0.0f, angle_y, angle_z));
+			if (angle_y < max_y && angle_z < max_z && angle_y < min_y && angle_z < min_z){
+			this.transform.rotation = Quaternion.identity;
+			transform.RotateAround (start_position, Vector3.left, angle_z);
 			prev_y = input_y.text;
 			prev_z = input_z.text;
+			}
+			else
+			{
+				print ("Invalid Input");
+			}
 		}
 	}
-
 
 }
