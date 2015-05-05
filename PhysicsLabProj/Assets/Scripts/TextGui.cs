@@ -19,7 +19,7 @@ public class TextGui : MonoBehaviour {
 		
 				if (float.TryParse (new_str, out float_num)) {
 					GuiText = float_num;
-			}
+            }
 		}
 	}
 }
