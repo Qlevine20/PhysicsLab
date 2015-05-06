@@ -38,9 +38,9 @@ public class MortarControl : MonoBehaviour {
     {
         shot_remains = true;
         launch_force.Set(0.0f,
-                             90 - angle_z,
-                             0.0f);
-        Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.rotation);
+                             90-angle_z,
+		                 0.0f);
+        Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
         projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
     }
 
@@ -58,7 +58,7 @@ public class MortarControl : MonoBehaviour {
 	void LateUpdate () {
 		if ((input_y.text != prev_y || input_z.text != prev_z) && Input.GetKey(KeyCode.Return)) {
 
-			angle_y = 180+(input_y.gameObject.GetComponent<TextGui>().GuiText);
+			angle_y = (input_y.gameObject.GetComponent<TextGui>().GuiText);
 			angle_z = (input_z.gameObject.GetComponent<TextGui>().GuiText);
 			if (angle_y <= max_y && angle_z <= max_z && angle_y >= min_y && angle_z >= min_z){
 
