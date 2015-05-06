@@ -5,8 +5,12 @@ public class Projectile : MonoBehaviour {
     public float time_to_die;
     private float count;
     private bool touching;
+    private Camera Camera1;
+    private Camera Camera2;
     void Start()
     {
+        Camera1 = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Camera2 = this.GetComponentInChildren<Camera>();
         count = 0;
     }
 
@@ -33,6 +37,18 @@ public class Projectile : MonoBehaviour {
         {
             GameObject.Find("Mortar").GetComponent<MortarControl>().shot_remains = false;
             Destroy(this.gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Camera1.enabled = false;
+            Camera2.enabled = true;
+
+        }
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            Camera2.enabled = false;
+            Camera1.enabled = true;
+             
         }
     }
 
