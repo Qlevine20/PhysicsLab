@@ -64,7 +64,7 @@ public class MortarControl : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space) && shot_remains == false)
+        if (Input.GetKey(KeyCode.Space) && shot_remains == false && IntroScript.intro_over)
         {
             FireProjectile();
             

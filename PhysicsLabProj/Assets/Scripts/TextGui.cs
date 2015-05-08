@@ -6,10 +6,12 @@ public class TextGui : MonoBehaviour {
 	public float GuiText;
 	private InputField InputF;
 	private string new_str = "1.234";
-    public float _default;
+    public float default_float;
+    public string default_string;
 	void Start (){
-        GuiText = _default;
+        GuiText = default_float;
 		InputF = this.gameObject.GetComponent<InputField>();
+        InputF.text = default_string;
 
 	}
 	void Update(){
@@ -25,7 +27,7 @@ public class TextGui : MonoBehaviour {
             }
             else
             {
-                GuiText = _default;
+                GuiText = default_float;
             }
         }
 	}

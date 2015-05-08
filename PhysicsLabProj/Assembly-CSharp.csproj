@@ -131,6 +131,7 @@
      <Compile Include="Assets\FOR REDISTRIBUTION\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\FOR REDISTRIBUTION\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\FOR REDISTRIBUTION\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <Compile Include="Assets\Scripts\IntroScript.cs" />
      <Compile Include="Assets\Scripts\LegRotation.cs" />
      <Compile Include="Assets\Scripts\MortarControl.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
