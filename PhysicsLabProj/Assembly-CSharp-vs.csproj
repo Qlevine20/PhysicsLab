@@ -136,6 +136,7 @@
      <Compile Include="Assets\Scripts\MortarControl.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\TextGui.cs" />
+     <Compile Include="Assets\TargetPart.cs" />
      <None Include="Assets\FOR REDISTRIBUTION\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

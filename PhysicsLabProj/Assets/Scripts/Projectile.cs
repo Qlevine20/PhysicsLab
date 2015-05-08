@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Projectile : MonoBehaviour {
+    public ParticleSystem explosion;
     public float time_to_die;
     private float count;
     private bool touching;
@@ -61,7 +62,11 @@ public class Projectile : MonoBehaviour {
     {
         if (collider.gameObject.tag == "Target")
         {
-            Destroy(collider.gameObject);
+
+            Instantiate(explosion, transform.position, transform.localRotation);
+            //collider.gameObject.GetComponent<TargetPart>().Explosion.enableEmission = true ;
+            //collider.gameObject.GetComponent<TargetPart>().Explosion.Play(true);
+            //Destroy(collider.gameObject);
             print("Winner");
         }
         else
