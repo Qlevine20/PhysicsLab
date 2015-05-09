@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Projectile : MonoBehaviour {
+    public float destroy_delay;
     public ParticleSystem explosion;
     public float time_to_die;
     private float count;
@@ -64,9 +66,11 @@ public class Projectile : MonoBehaviour {
         {
 
             Instantiate(explosion, transform.position, transform.localRotation);
-            //collider.gameObject.GetComponent<TargetPart>().Explosion.enableEmission = true ;
-            //collider.gameObject.GetComponent<TargetPart>().Explosion.Play(true);
-            //Destroy(collider.gameObject);
+            // we forgot to attach to the target's particle system to the script, which is why the explosion never occurred
+            collider.gameObject.GetComponent<TargetPart>().Explosion.enableEmission = true ;
+            collider.gameObject.GetComponent<TargetPart>().Explosion.Play(true);
+            // it turns out that destroy has a built in delay function, place a float as a second parameter... neat huh?
+            Destroy(collider.gameObject,destroy_delay); 
             print("Winner");
         }
         else
@@ -74,5 +78,7 @@ public class Projectile : MonoBehaviour {
             touching = true;
         }
     }
+
+
         
 }
