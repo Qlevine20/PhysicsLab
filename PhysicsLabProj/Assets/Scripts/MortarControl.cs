@@ -4,8 +4,8 @@ using UnityEngine.UI; //required when using UI elements
 
 public class MortarControl : MonoBehaviour {
 
-	public float angle_z = 45.0f;
-	public float angle_y = 0.0f;
+	public float angle_z = 0.0f;
+	public float angle_y = 45.0f;
 	public float max_y = 90.0f;
 	public float max_z = 90.0f;
 	public float min_y = 0.0f;
@@ -20,28 +20,29 @@ public class MortarControl : MonoBehaviour {
     public Vector3 launch_force;
     public Text distance;
     public GameObject[] Targets;
+    private TextGui GuiV;
+    private TextGui GuiY;
+    private TextGui GuiZ;
 
 
     //for tracking previous inputs
-    private string prev_y;
-	private string prev_z;
-    private float prev_power;
 
-	// Use this for initialization
-	void Start () {
-        power = GameObject.Find("Velocity").GetComponentInChildren<TextGui>().GuiText;
-        prev_power = power;
-        distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
+    // Use this for initialization
+    void Start () {
         shot_remains = false;
 		start_position = this.transform.position;
-		prev_y = input_y.text;
-		prev_z = input_z.text;
-		transform.RotateAround (start_position, Vector3.forward, 90-angle_z);
+		transform.RotateAround (start_position, Vector3.forward, 90-angle_y);
         Targets = GameObject.FindGameObjectsWithTag("Target");
+        distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
+        GuiV = GameObject.Find("Velocity").GetComponentInChildren<TextGui>();
+        GuiY = GameObject.Find("TextGuiY").GetComponentInChildren<TextGui>();
+        GuiZ = GameObject.Find("TextGuiZ").GetComponentInChildren<TextGui>();
+        power = GuiV.GuiText;
         ShowTargetInformation();
 
-	}
+    }
 
+    // distance to multiple targets
     void ShowTargetInformation()
     {
         foreach (GameObject target in Targets)
@@ -56,15 +57,16 @@ public class MortarControl : MonoBehaviour {
     {
         shot_remains = true;
         launch_force.Set(0.0f,
-                             90-angle_z,
-		                 0.0f);
+                             90-angle_y,
+		                 angle_z);
         Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
         projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space) && shot_remains == false && IntroScript.intro_over)
+        //Changed fire to F because space was causing selection of input field
+        if (Input.GetKey(KeyCode.F) && shot_remains == false && IntroScript.intro_over)
         {
             FireProjectile();
             
@@ -73,25 +75,18 @@ public class MortarControl : MonoBehaviour {
 
 	//getting the data from inside the textbox
 
-	void LateUpdate () {
-        power = GameObject.Find("Velocity").GetComponentInChildren<TextGui>().GuiText;
-        if ((input_y.text != prev_y || input_z.text != prev_z || power!= prev_power) && Input.GetKey(KeyCode.Return)) {
+	void Update () {
+        power = GuiV.GuiText;
+        angle_y = GuiY.GuiText;
+        angle_z = GuiZ.GuiText;
+        if (angle_y <= max_y && angle_z <= max_z && angle_y >= min_y && angle_z >= min_z){
 
-			angle_y = (input_y.gameObject.GetComponent<TextGui>().GuiText);
-			angle_z = (input_z.gameObject.GetComponent<TextGui>().GuiText);
-            if (angle_y <= max_y && angle_z <= max_z && angle_y >= min_y && angle_z >= min_z){
-
-			    this.transform.rotation = Quaternion.identity;
-				transform.RotateAround (start_position, Vector3.forward, 90-angle_z);
-			    prev_y = input_y.text;
-			    prev_z = input_z.text;
-                prev_power = power;
-			}
-			else
-			{
-				print ("Invalid Input");
-			}
+	        this.transform.rotation = Quaternion.identity;
+		    transform.RotateAround (start_position, Vector3.forward, 90-angle_y);
+		}
+		else
+		{
+			print ("Invalid Input");
 		}
 	}
-
 }
