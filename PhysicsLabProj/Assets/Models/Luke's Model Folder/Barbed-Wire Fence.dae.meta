@@ -1,0 +1,261 @@
+fileFormatVersion: 2
+guid: 9fc48102a51cb4019bf0fa9d091f8efe
+timeCreated: 1431302852
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Fence_Section
+    100004: Fence_Section 1
+    100006: group_0
+    100008: group_0 1
+    100010: group_1
+    100012: group_1 1
+    100014: group_2
+    100016: group_2 1
+    100018: group_3
+    100020: group_3 1
+    100022: group_4
+    100024: group_4 1
+    100026: ID102
+    100028: ID102 1
+    100030: ID110
+    100032: ID110 1
+    100034: ID124
+    100036: ID124 1
+    100038: ID132
+    100040: ID132 1
+    100042: ID136
+    100044: ID136 1
+    100046: ID140
+    100048: ID140 1
+    100050: ID144
+    100052: ID144 1
+    100054: ID148
+    100056: ID148 1
+    100058: ID152
+    100060: ID152 1
+    100062: ID18
+    100064: ID18 1
+    100066: ID31
+    100068: ID31 1
+    100070: ID46
+    100072: ID46 1
+    100074: ID50
+    100076: ID50 1
+    100078: ID63
+    100080: ID63 1
+    100082: ID76
+    100084: ID76 1
+    100086: instance_0
+    100088: instance_1
+    400000: //RootNode
+    400002: Fence_Section
+    400004: Fence_Section 1
+    400006: group_0
+    400008: group_0 1
+    400010: group_1
+    400012: group_1 1
+    400014: group_2
+    400016: group_2 1
+    400018: group_3
+    400020: group_3 1
+    400022: group_4
+    400024: group_4 1
+    400026: ID102
+    400028: ID102 1
+    400030: ID110
+    400032: ID110 1
+    400034: ID124
+    400036: ID124 1
+    400038: ID132
+    400040: ID132 1
+    400042: ID136
+    400044: ID136 1
+    400046: ID140
+    400048: ID140 1
+    400050: ID144
+    400052: ID144 1
+    400054: ID148
+    400056: ID148 1
+    400058: ID152
+    400060: ID152 1
+    400062: ID18
+    400064: ID18 1
+    400066: ID31
+    400068: ID31 1
+    400070: ID46
+    400072: ID46 1
+    400074: ID50
+    400076: ID50 1
+    400078: ID63
+    400080: ID63 1
+    400082: ID76
+    400084: ID76 1
+    400086: instance_0
+    400088: instance_1
+    2300000: Fence_Section
+    2300002: Fence_Section 1
+    2300004: group_0
+    2300006: group_0 1
+    2300008: group_1
+    2300010: group_1 1
+    2300012: group_2
+    2300014: group_2 1
+    2300016: group_3
+    2300018: group_3 1
+    2300020: group_4
+    2300022: group_4 1
+    2300024: ID102
+    2300026: ID102 1
+    2300028: ID110
+    2300030: ID110 1
+    2300032: ID124
+    2300034: ID124 1
+    2300036: ID132
+    2300038: ID132 1
+    2300040: ID136
+    2300042: ID136 1
+    2300044: ID140
+    2300046: ID140 1
+    2300048: ID144
+    2300050: ID144 1
+    2300052: ID148
+    2300054: ID148 1
+    2300056: ID152
+    2300058: ID152 1
+    2300060: ID18
+    2300062: ID18 1
+    2300064: ID31
+    2300066: ID31 1
+    2300068: ID46
+    2300070: ID46 1
+    2300072: ID50
+    2300074: ID50 1
+    2300076: ID63
+    2300078: ID63 1
+    2300080: ID76
+    2300082: ID76 1
+    3300000: Fence_Section
+    3300002: Fence_Section 1
+    3300004: group_0
+    3300006: group_0 1
+    3300008: group_1
+    3300010: group_1 1
+    3300012: group_2
+    3300014: group_2 1
+    3300016: group_3
+    3300018: group_3 1
+    3300020: group_4
+    3300022: group_4 1
+    3300024: ID102
+    3300026: ID102 1
+    3300028: ID110
+    3300030: ID110 1
+    3300032: ID124
+    3300034: ID124 1
+    3300036: ID132
+    3300038: ID132 1
+    3300040: ID136
+    3300042: ID136 1
+    3300044: ID140
+    3300046: ID140 1
+    3300048: ID144
+    3300050: ID144 1
+    3300052: ID148
+    3300054: ID148 1
+    3300056: ID152
+    3300058: ID152 1
+    3300060: ID18
+    3300062: ID18 1
+    3300064: ID31
+    3300066: ID31 1
+    3300068: ID46
+    3300070: ID46 1
+    3300072: ID50
+    3300074: ID50 1
+    3300076: ID63
+    3300078: ID63 1
+    3300080: ID76
+    3300082: ID76 1
+    4300000: Fence_Section
+    4300002: ID124
+    4300004: ID132
+    4300006: ID136
+    4300008: ID140
+    4300010: ID144
+    4300012: ID148
+    4300014: ID152
+    4300016: group_0
+    4300018: ID18
+    4300020: ID31
+    4300022: group_1
+    4300024: ID46
+    4300026: ID50
+    4300028: group_2
+    4300030: ID63
+    4300032: ID76
+    4300034: group_3
+    4300036: group_4
+    4300038: ID102
+    4300040: ID110
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
