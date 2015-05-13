@@ -19,7 +19,6 @@
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
-.gitignore
 PhysicsLabProj/Assets/FOR REDISTRIBUTION.meta
 PhysicsLabProj/Assets/FOR REDISTRIBUTION/Dramatic Terrains for Unity5.meta
 PhysicsLabProj/Assets/FOR REDISTRIBUTION/Dramatic Terrains for Unity5/Demo Scenes.meta
@@ -1069,7 +1068,6 @@ PhysicsLabProj/Assets/FOR REDISTRIBUTION/Standard Assets/Water FX Pack/Prefabs/R
 PhysicsLabProj/Assets/FOR REDISTRIBUTION/Standard Assets/Water FX Pack/Prefabs/Rain.prefab.meta
 PhysicsLabProj/Assets/FOR REDISTRIBUTION/ThirdPersonController.prefab
 PhysicsLabProj/Assets/FOR REDISTRIBUTION/ThirdPersonController.prefab.meta
-PhysicsLabProj/Assets/Models.meta
 PhysicsLabProj/Assets/Models/Luke's Model Folder.meta
 PhysicsLabProj/Assets/Models/Luke's Model Folder/Barbed-Wire Fence.dae
 PhysicsLabProj/Assets/Models/Luke's Model Folder/Barbed-Wire Fence.dae.meta
@@ -1306,35 +1304,6 @@ PhysicsLabProj/Assets/Models/Mortar Cannon.fbx
 PhysicsLabProj/Assets/Models/Mortar Cannon.fbx.meta
 PhysicsLabProj/Assets/Models/Target.fbx
 PhysicsLabProj/Assets/Models/Target.fbx.meta
-PhysicsLabProj/Assets/Prefabs.meta
-PhysicsLabProj/Assets/Prefabs/Camera.prefab
-PhysicsLabProj/Assets/Prefabs/Camera.prefab.meta
-PhysicsLabProj/Assets/Prefabs/FullMortar.prefab
-PhysicsLabProj/Assets/Prefabs/FullMortar.prefab.meta
-PhysicsLabProj/Assets/Prefabs/Mortar.prefab
-PhysicsLabProj/Assets/Prefabs/Mortar.prefab.meta
-PhysicsLabProj/Assets/Prefabs/ParticePrefabs.meta
-PhysicsLabProj/Assets/Prefabs/ParticePrefabs/PartExp.prefab
-PhysicsLabProj/Assets/Prefabs/ParticePrefabs/PartExp.prefab.meta
-PhysicsLabProj/Assets/Prefabs/Target.prefab
-PhysicsLabProj/Assets/Prefabs/Target.prefab.meta
-PhysicsLabProj/Assets/Prefabs/TextGui.prefab
-PhysicsLabProj/Assets/Prefabs/TextGui.prefab.meta
-PhysicsLabProj/Assets/Prefabs/projectile.prefab
-PhysicsLabProj/Assets/Prefabs/projectile.prefab.meta
-PhysicsLabProj/Assets/Scripts.meta
-PhysicsLabProj/Assets/Scripts/IntroScript.cs
-PhysicsLabProj/Assets/Scripts/IntroScript.cs.meta
-PhysicsLabProj/Assets/Scripts/LegRotation.cs
-PhysicsLabProj/Assets/Scripts/LegRotation.cs.meta
-PhysicsLabProj/Assets/Scripts/MortarControl.cs
-PhysicsLabProj/Assets/Scripts/MortarControl.cs.meta
-PhysicsLabProj/Assets/Scripts/Projectile.cs
-PhysicsLabProj/Assets/Scripts/Projectile.cs.meta
-PhysicsLabProj/Assets/Scripts/TargetPart.cs
-PhysicsLabProj/Assets/Scripts/TargetPart.cs.meta
-PhysicsLabProj/Assets/Scripts/TextGui.cs
-PhysicsLabProj/Assets/Scripts/TextGui.cs.meta
 PhysicsLabProj/Assets/Terrain.meta
 PhysicsLabProj/Assets/Terrain/Trees.meta
 PhysicsLabProj/Assets/Terrain/Trees/Bark 1.mat
@@ -1408,11 +1377,6 @@ PhysicsLabProj/Assets/Terrain/Trees/leaf2-diffuse2.psd
 PhysicsLabProj/Assets/Terrain/Trees/leaf2-diffuse2.psd.meta
 PhysicsLabProj/Assets/Terrain/Trees/leaf2-normal.png
 PhysicsLabProj/Assets/Terrain/Trees/leaf2-normal.png.meta
-PhysicsLabProj/Assets/scenes.meta
-PhysicsLabProj/Assets/scenes/Main.unity
-PhysicsLabProj/Assets/scenes/Main.unity.meta
-PhysicsLabProj/Assets/scenes/Prototype Scene.unity
-PhysicsLabProj/Assets/scenes/Prototype Scene.unity.meta
 PhysicsLabProj/ProjectSettings/AudioManager.asset
 PhysicsLabProj/ProjectSettings/DynamicsManager.asset
 PhysicsLabProj/ProjectSettings/EditorBuildSettings.asset
@@ -1427,4 +1391,3 @@ PhysicsLabProj/ProjectSettings/ProjectVersion.txt
 PhysicsLabProj/ProjectSettings/QualitySettings.asset
 PhysicsLabProj/ProjectSettings/TagManager.asset
 PhysicsLabProj/ProjectSettings/TimeManager.asset
-README.md
