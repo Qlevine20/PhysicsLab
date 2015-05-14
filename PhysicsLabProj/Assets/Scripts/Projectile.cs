@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour {
 	
 	void Start()
 	{
-		Camera1 = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+		Camera1 = GameObject.FindGameObjectWithTag("MortarCam").GetComponent<Camera>();
 		Camera2 = this.GetComponentInChildren<Camera>();
 		count = 0;
 	}
@@ -73,6 +73,8 @@ public class Projectile : MonoBehaviour {
 		{
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
+			Camera2.enabled = false;
+			Camera1.enabled = true;
 			Destroy(this.gameObject,time_to_die);
 			Destroy(collider.gameObject,destroy_delay); 
 			print("Winner");

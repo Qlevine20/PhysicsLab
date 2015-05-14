@@ -66,7 +66,7 @@ public class MortarControl : MonoBehaviour {
     void FixedUpdate()
     {
         //Changed fire to F because space was causing selection of input field
-        if (Input.GetKey(KeyCode.F) && shot_remains == false && IntroScript.intro_over)
+        if (Input.GetKey(KeyCode.F) && shot_remains == false && IntroScript.intro_over && Player.freeze == true)
         {
             FireProjectile();
             
