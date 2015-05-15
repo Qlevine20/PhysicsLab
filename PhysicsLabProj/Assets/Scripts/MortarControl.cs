@@ -4,8 +4,8 @@ using UnityEngine.UI; //required when using UI elements
 
 public class MortarControl : MonoBehaviour {
 
-	public float angle_z = 0.0f;
-	public float angle_y = 45.0f;
+	public float angle_z = -45.0f;
+	public float angle_y = 0.0f;
 	public float max_y = 90.0f;
 	public float max_z = 90.0f;
 	public float min_y = 0.0f;
@@ -31,7 +31,7 @@ public class MortarControl : MonoBehaviour {
     void Start () {
         shot_remains = false;
 		start_position = this.transform.position;
-		transform.RotateAround (start_position, Vector3.forward, 90-angle_y);
+		transform.RotateAround (start_position, Vector3.right, 90-angle_y);
         Targets = GameObject.FindGameObjectsWithTag("Target");
         distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
         GuiV = GameObject.Find("Velocity").GetComponentInChildren<TextGui>();
@@ -56,7 +56,7 @@ public class MortarControl : MonoBehaviour {
     void FireProjectile()
     {
         shot_remains = true;
-        launch_force.Set(0.0f,
+        launch_force.Set(0f,
                              90-angle_y,
 		                 angle_z);
         Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
