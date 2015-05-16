@@ -132,13 +132,11 @@
      <Compile Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
      <Compile Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
      <Compile Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\ParticleSystems\Scripts\SmokeParticles.cs" />
-     <Compile Include="Assets\Imports\Free_Rocks\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Imports\StonyGroundPackage\InstructionsScene\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-     <Compile Include="Assets\Imports\StonyGroundPackage\InstructionsScene\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
      <Compile Include="Assets\Scripts\DustScript.cs" />
      <Compile Include="Assets\Scripts\Explosions.cs" />
      <Compile Include="Assets\Scripts\IntroScript.cs" />
      <Compile Include="Assets\Scripts\LegRotation.cs" />
+     <Compile Include="Assets\Scripts\MortControl.cs" />
      <Compile Include="Assets\Scripts\MortarControl.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
@@ -157,7 +155,6 @@
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
-     <None Include="Assets\Imports\StonyGroundPackage\InstructionsScene\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\Projectors\Guidelines.txt" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
@@ -171,7 +168,6 @@
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
-     <None Include="Assets\Imports\Free_Rocks\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />

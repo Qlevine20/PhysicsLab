@@ -5,8 +5,6 @@ Project("{9050DE00-8F2A-2FDB-2132-4D7359250FE3}") = "PhysicsLabProj", "Assembly-
 EndProject
 Project("{9050DE00-8F2A-2FDB-2132-4D7359250FE3}") = "PhysicsLabProj", "Assembly-CSharp-Editor.csproj", "{D55A5675-2E37-0557-27BF-69E7C5839A90}"
 EndProject
-Project("{9050DE00-8F2A-2FDB-2132-4D7359250FE3}") = "PhysicsLabProj", "Assembly-UnityScript.unityproj", "{04526FC2-C3B7-E555-8666-92D9F39AA901}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,15 +19,11 @@ Global
 		{D55A5675-2E37-0557-27BF-69E7C5839A90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55A5675-2E37-0557-27BF-69E7C5839A90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D55A5675-2E37-0557-27BF-69E7C5839A90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04526FC2-C3B7-E555-8666-92D9F39AA901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04526FC2-C3B7-E555-8666-92D9F39AA901}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04526FC2-C3B7-E555-8666-92D9F39AA901}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04526FC2-C3B7-E555-8666-92D9F39AA901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

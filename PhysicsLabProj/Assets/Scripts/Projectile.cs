@@ -26,7 +26,6 @@ public class Projectile : MonoBehaviour {
 		}
 		else
 		{
-			GameObject.Find("Mortar").GetComponent<MortarControl>().shot_remains = false;
 			Camera1.enabled = true;
 			Camera2.enabled = false;
 			
@@ -44,7 +43,7 @@ public class Projectile : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.Delete))
 		{
-			GameObject.Find("Mortar").GetComponent<MortarControl>().shot_remains = false;
+			GameObject.Find("FullMortar").GetComponent<MortarControl>().shot_remains = false;
 			Camera1.enabled = true;
 			Camera2.enabled = false;
 			
