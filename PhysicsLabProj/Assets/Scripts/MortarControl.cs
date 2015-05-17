@@ -23,6 +23,7 @@ public class MortarControl : MonoBehaviour {
     private TextGui GuiV;
     private TextGui GuiY;
     private TextGui GuiX;
+	public AudioClip fire;
 
 
     //for tracking previous inputs
@@ -61,6 +62,7 @@ public class MortarControl : MonoBehaviour {
 		                 angle_z);
         Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
         projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
+		GetComponent<AudioSource> ().Play ();
     }
 
     void FixedUpdate()
@@ -68,6 +70,7 @@ public class MortarControl : MonoBehaviour {
         //Changed fire to F because space was causing selection of input field
         if (Input.GetKey(KeyCode.F) && shot_remains == false && IntroScript.intro_over && Player.freeze == true)
         {
+			GetComponent<AudioSource> ().Play ();
             FireProjectile();
             
         }
