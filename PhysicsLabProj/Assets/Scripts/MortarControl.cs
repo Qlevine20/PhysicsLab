@@ -23,7 +23,7 @@ public class MortarControl : MonoBehaviour {
     private TextGui GuiV;
     private TextGui GuiY;
     private TextGui GuiX;
-	public AudioClip fire;
+	public AudioSource fire;
 
 
     //for tracking previous inputs
@@ -63,6 +63,7 @@ public class MortarControl : MonoBehaviour {
         Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
         projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
 		GetComponent<AudioSource> ().Play ();
+		fire.Play ();
     }
 
     void FixedUpdate()
@@ -72,6 +73,7 @@ public class MortarControl : MonoBehaviour {
         {
 			GetComponent<AudioSource> ().Play ();
             FireProjectile();
+			fire.Play ();
             
         }
     }

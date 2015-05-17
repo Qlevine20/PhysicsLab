@@ -20,6 +20,8 @@ public class MortControl : MonoBehaviour {
 	public float input_z;
 	public bool mort;
 	public bool change;
+	public AudioSource fire;
+
 
 
 
@@ -54,9 +56,11 @@ public class MortControl : MonoBehaviour {
 
 	void FireProjectile()
 	{
+		GetComponent<AudioSource> ().Play ();
 		launch_force = Vector3.forward;
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
 		projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
+		fire.Play ();
 	}
 
 	void FixedUpdate()
@@ -66,6 +70,8 @@ public class MortControl : MonoBehaviour {
 		{
 			mort = false;
 			FireProjectile();
+			GetComponent<AudioSource> ().Play ();
+			fire.Play ();
 			
 		}
 	}
