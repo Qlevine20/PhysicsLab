@@ -19,7 +19,7 @@ public class MortControl : MonoBehaviour {
 	public float input_y;
 	public float input_z;
 	public bool mort;
-
+	public bool change;
 
 
 
@@ -34,7 +34,7 @@ public class MortControl : MonoBehaviour {
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
-		this.transform.rotation = Quaternion.AngleAxis (input_y,Vector3.up);
+		this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
 		ShowTargetInformation();
 
 
@@ -54,7 +54,7 @@ public class MortControl : MonoBehaviour {
 
 	void FireProjectile()
 	{
-		launch_force.Set (0.0f,90-input_y,input_z);
+		launch_force = Vector3.forward;
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
 		projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
 	}
@@ -62,7 +62,7 @@ public class MortControl : MonoBehaviour {
 	void FixedUpdate()
 	{
 		//Changed fire to F because space was causing selection of input field
-		if (Input.GetKey(KeyCode.F) && IntroScript.intro_over && Player.freeze == true && mort == true)
+		if (Input.GetKey(KeyCode.F) && IntroScript.intro_over && Player.freeze == true && mort)
 		{
 			mort = false;
 			FireProjectile();
@@ -74,10 +74,10 @@ public class MortControl : MonoBehaviour {
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
-		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z) 
+		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
 		{
-			this.transform.rotation = Quaternion.identity;
-			this.transform.rotation = Quaternion.AngleAxis (input_y,Vector3.up);
+			this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
+
 		} 
 
 	

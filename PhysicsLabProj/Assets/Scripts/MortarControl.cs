@@ -7,12 +7,12 @@ public class MortarControl : MonoBehaviour {
 	public float angle_z = -45.0f;
 	public float angle_y = 0.0f;
 	public float max_y = 90.0f;
-	public float max_z = 90.0f;
+	public float max_x = 90.0f;
 	public float min_y = 0.0f;
-	public float min_z = 0.0f;
+	public float min_x = 0.0f;
 	public Vector3 start_force;
 	public InputField input_y;
-	public InputField input_z;
+	public InputField input_x;
 	private Vector3 start_position;
     public bool shot_remains;
     public Rigidbody projectile;
@@ -22,7 +22,7 @@ public class MortarControl : MonoBehaviour {
     public GameObject[] Targets;
     private TextGui GuiV;
     private TextGui GuiY;
-    private TextGui GuiZ;
+    private TextGui GuiX;
 
 
     //for tracking previous inputs
@@ -36,7 +36,7 @@ public class MortarControl : MonoBehaviour {
         distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
         GuiV = GameObject.Find("Velocity").GetComponentInChildren<TextGui>();
         GuiY = GameObject.Find("TextGuiY").GetComponentInChildren<TextGui>();
-        GuiZ = GameObject.Find("TextGuiZ").GetComponentInChildren<TextGui>();
+        GuiX = GameObject.Find("TextGuiX").GetComponentInChildren<TextGui>();
         power = GuiV.GuiText;
         ShowTargetInformation();
 
@@ -78,8 +78,8 @@ public class MortarControl : MonoBehaviour {
 	void Update () {
         power = GuiV.GuiText;
         angle_y = GuiY.GuiText;
-        angle_z = GuiZ.GuiText;
-        if (angle_y <= max_y && angle_z <= max_z && angle_y >= min_y && angle_z >= min_z){
+        angle_z = GuiX.GuiText;
+        if (angle_y <= max_y && angle_z <= max_x && angle_y >= min_y && angle_z >= min_x){
 
 	        this.transform.rotation = Quaternion.identity;
 		    transform.RotateAround (start_position, Vector3.forward, 90-angle_y);

@@ -34,7 +34,9 @@ public class TextGui : MonoBehaviour {
 
         if (float.TryParse(name, out float_num))
         {
+			GameObject.Find("Mortar").GetComponent <MortControl>().change = true;
             GuiText = float_num;
+			GameObject.Find("Mortar").GetComponent <MortControl>().change = true;
         }
         else
         {
