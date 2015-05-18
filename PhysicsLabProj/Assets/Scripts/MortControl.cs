@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI; //required when using UI elements
 
 
+[RequireComponent(typeof(AudioSource))]
 public class MortControl : MonoBehaviour {
 	private TextGui GuiV;
 	private TextGui GuiY;
@@ -20,7 +21,8 @@ public class MortControl : MonoBehaviour {
 	public float input_z;
 	public bool mort;
 	public bool change;
-	public AudioSource fire;
+	public AudioClip fire;
+
 
 
 
@@ -40,7 +42,6 @@ public class MortControl : MonoBehaviour {
 		ShowTargetInformation();
 
 
-
 	
 	}
 
@@ -56,11 +57,10 @@ public class MortControl : MonoBehaviour {
 
 	void FireProjectile()
 	{
-		GetComponent<AudioSource> ().Play ();
+		AudioSource.PlayClipAtPoint(fire,this.transform.position) ;
 		launch_force = Vector3.forward;
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
 		projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
-		fire.Play ();
 	}
 
 	void FixedUpdate()
@@ -70,8 +70,6 @@ public class MortControl : MonoBehaviour {
 		{
 			mort = false;
 			FireProjectile();
-			GetComponent<AudioSource> ().Play ();
-			fire.Play ();
 			
 		}
 	}
