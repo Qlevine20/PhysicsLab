@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+    <asset>
+        <contributor>
+            <authoring_tool>SketchUp 15.3.329</authoring_tool>
+        </contributor>
+        <created>2015-05-23T18:21:44Z</created>
+        <modified>2015-05-23T18:21:44Z</modified>
+        <unit meter="0.0254000" name="inch" />
+        <up_axis>Z_UP</up_axis>
+    </asset>
+    <library_visual_scenes>
+        <visual_scene id="ID1">
+            <node name="SketchUp">
+                <node id="ID2" name="instance_0">
+                    <matrix>1.0000000 0.0000000 0.0000000 35.0000000 0.0000000 1.0000000 0.0000000 70.2500000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 0.0000000 1.0000000</matrix>
+                    <instance_node url="#ID3" />
+                </node>
+            </node>
+        </visual_scene>
+    </library_visual_scenes>
+    <library_nodes>
+        <node id="ID3" name="ske7A">
+            <instance_geometry url="#ID4">
+                <bind_material>
+                    <technique_common>
+                        <instance_material symbol="Material2" target="#ID5">
+                            <bind_vertex_input semantic="UVSET0" input_semantic="TEXCOORD" input_set="0" />
+                        </instance_material>
+                    </technique_common>
+                </bind_material>
+            </instance_geometry>
+        </node>
+    </library_nodes>
+    <library_geometries>
+        <geometry id="ID4">
+            <mesh>
+                <source id="ID10">
+                    <float_array id="ID14" count="144">35.0000000 0.0000000 35.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 0.0000000 35.0000000 35.0000000 0.0000000 35.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 0.0000000 0.0000000 35.0000000 0.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 0.0000000 0.0000000 35.0000000 0.0000000 0.0000000 35.0000000 35.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 35.0000000 35.0000000 0.0000000 0.0000000 35.0000000 0.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 35.0000000 0.0000000 35.0000000 35.0000000 35.0000000 35.0000000 0.0000000 0.0000000 35.0000000 0.0000000</float_array>
+                    <technique_common>
+                        <accessor count="48" source="#ID14" stride="3">
+                            <param name="X" type="float" />
+                            <param name="Y" type="float" />
+                            <param name="Z" type="float" />
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="ID11">
+                    <float_array id="ID15" count="144">0.0000000 -1.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 -0.0000000 1.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 -1.0000000 0.0000000 0.0000000 -1.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 -0.0000000 1.0000000 -0.0000000 -0.0000000 1.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000 -0.0000000 -1.0000000 -0.0000000</float_array>
+                    <technique_common>
+                        <accessor count="48" source="#ID15" stride="3">
+                            <param name="X" type="float" />
+                            <param name="Y" type="float" />
+                            <param name="Z" type="float" />
+                        </accessor>
+                    </technique_common>
+                </source>
+                <source id="ID13">
+                    <float_array id="ID16" count="12">1.0000000 1.0000000 0.0000000 0.0000000 1.0000000 0.0000000 0.0000000 1.0000000 -1.0000000 1.0000000 -1.0000000 0.0000000</float_array>
+                    <technique_common>
+                        <accessor count="6" source="#ID16" stride="2">
+                            <param name="S" type="float" />
+                            <param name="T" type="float" />
+                        </accessor>
+                    </technique_common>
+                </source>
+                <vertices id="ID12">
+                    <input semantic="POSITION" source="#ID10" />
+                    <input semantic="NORMAL" source="#ID11" />
+                </vertices>
+                <triangles count="24" material="Material2">
+                    <input offset="0" semantic="VERTEX" source="#ID12" />
+                    <input offset="1" semantic="TEXCOORD" source="#ID13" />
+                    <p>0 0 1 1 2 2 1 1 0 0 3 3 4 3 5 0 6 1 7 2 6 1 5 0 8 4 9 1 10 3 9 1 8 4 11 5 12 5 13 4 14 1 15 3 14 1 13 4 16 2 17 3 18 1 17 3 16 2 19 0 20 0 21 2 22 3 23 1 22 3 21 2 24 2 25 3 26 1 25 3 24 2 27 0 28 0 29 2 30 3 31 1 30 3 29 2 32 4 33 1 34 3 33 1 32 4 35 5 36 5 37 4 38 1 39 3 38 1 37 4 40 3 41 5 42 1 41 5 40 3 43 4 44 4 45 3 46 5 47 1 46 5 45 3</p>
+                </triangles>
+            </mesh>
+        </geometry>
+    </library_geometries>
+    <library_materials>
+        <material id="ID5" name="material_7">
+            <instance_effect url="#ID6" />
+        </material>
+    </library_materials>
+    <library_effects>
+        <effect id="ID6">
+            <profile_COMMON>
+                <newparam sid="ID8">
+                    <surface type="2D">
+                        <init_from>ID7</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID9">
+                    <sampler2D>
+                        <source>ID8</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <lambert>
+                        <diffuse>
+                            <texture texture="ID9" texcoord="UVSET0" />
+                        </diffuse>
+                    </lambert>
+                </technique>
+            </profile_COMMON>
+        </effect>
+    </library_effects>
+    <library_images>
+        <image id="ID7">
+            <init_from>Crate6/material_7.bmp</init_from>
+        </image>
+    </library_images>
+    <scene>
+        <instance_visual_scene url="#ID1" />
+    </scene>
+</COLLADA>
