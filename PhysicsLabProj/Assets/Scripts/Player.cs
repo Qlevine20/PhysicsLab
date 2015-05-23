@@ -41,9 +41,6 @@ public class Player : MonoBehaviour {
 				}
 			}
 		} 
-		else 
-		{
-			print ("far enough");
-		}
+		
 	}
 }

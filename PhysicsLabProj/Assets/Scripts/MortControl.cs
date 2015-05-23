@@ -5,9 +5,11 @@ using UnityEngine.UI; //required when using UI elements
 
 [RequireComponent(typeof(AudioSource))]
 public class MortControl : MonoBehaviour {
+
 	private TextGui GuiV;
 	private TextGui GuiY;
 	private TextGui GuiZ;
+    private bool Start;
 	public Text distance;
 	public GameObject[] Targets;
 	public Rigidbody projectile;
@@ -21,14 +23,23 @@ public class MortControl : MonoBehaviour {
 	public float input_z;
 	public bool mort;
 	public bool change;
+    public float count_time; // used in Counter() to determine the length of time to wait
 	public AudioClip fire;
+    private GameObject FPSCam;
+    
+
+    //Camera Offset - set the values for camera offset
+    public float x_offset;
+    public float y_offset;
+    public float z_offset;
+    
 
 
 
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		mort = true;
 		Targets = GameObject.FindGameObjectsWithTag("Target");
 		distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
@@ -40,10 +51,22 @@ public class MortControl : MonoBehaviour {
 		input_z = GuiZ.GuiText;
 		this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
 		ShowTargetInformation();
-
-
-	
+        FPSCam = GameObject.Find("FirstPersonCharacter");
+        Start = true;
+        
 	}
+
+    void Counter(float length)
+    {
+        float count = 0.0f;
+        while (count <= length)
+        {
+            count += Time.deltaTime;
+            print(count);
+        }
+        
+    }
+
 
 	void ShowTargetInformation()
 	{
@@ -53,6 +76,17 @@ public class MortControl : MonoBehaviour {
 		}
 		
 	}
+
+    void CameraTargetSnap()
+    {
+        foreach (GameObject target in Targets) 
+        {
+            FPSCam.gameObject.transform.position.Set(target.gameObject.transform.position.x + x_offset, 
+                target.gameObject.transform.position.y + y_offset, 
+                target.gameObject.transform.position.z + z_offset);
+            Counter(count_time);
+        } 
+    }
 
 
 	void FireProjectile()
@@ -72,6 +106,12 @@ public class MortControl : MonoBehaviour {
 			FireProjectile();
 			
 		}
+        if (Start) 
+        {
+            CameraTargetSnap();
+            Start = false;
+        }
+        
 	}
 	// Update is called once per frame
 	void Update () {
