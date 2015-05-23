@@ -5,11 +5,10 @@ using UnityEngine.UI; //required when using UI elements
 
 [RequireComponent(typeof(AudioSource))]
 public class MortControl : MonoBehaviour {
-
+	
 	private TextGui GuiV;
 	private TextGui GuiY;
 	private TextGui GuiZ;
-    private bool Start;
 	public Text distance;
 	public GameObject[] Targets;
 	public Rigidbody projectile;
@@ -23,21 +22,25 @@ public class MortControl : MonoBehaviour {
 	public float input_z;
 	public bool mort;
 	public bool change;
-    public float count_time; // used in Counter() to determine the length of time to wait
+	public float count_time; // used in Counter() to determine the length of time to wait
 	public AudioClip fire;
-    private GameObject FPSCam;
-    
-
-    //Camera Offset - set the values for camera offset
-    public float x_offset;
-    public float y_offset;
-    public float z_offset;
-    
-
-
-
-
-
+	private GameObject FPSCam;
+	public GameObject FPSCon;
+	private bool fin;
+	private float start_count;
+	private bool start_finished;
+	
+	
+	//Camera Offset - set the values for camera offset
+	public float x_offset;
+	public float y_offset;
+	public float z_offset;
+	
+	
+	
+	
+	
+	
 	// Use this for initialization
 	void Awake () {
 		mort = true;
@@ -51,23 +54,21 @@ public class MortControl : MonoBehaviour {
 		input_z = GuiZ.GuiText;
 		this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
 		ShowTargetInformation();
-        FPSCam = GameObject.Find("FirstPersonCharacter");
-        Start = true;
-        
+		FPSCam = GameObject.Find("StartCam");
+		fin = false;
+		start_count = 0.0f;
+		start_finished = true;
+		
 	}
-
-    void Counter(float length)
-    {
-        float count = 0.0f;
-        while (count <= length)
-        {
-            count += Time.deltaTime;
-            print(count);
-        }
-        
-    }
-
-
+	
+	void Start()
+	{
+		foreach (GameObject target in Targets) {
+			StartCoroutine(CamMove (count_time,target)); 
+			print ("run");
+			
+		}
+	}
 	void ShowTargetInformation()
 	{
 		foreach (GameObject target in Targets)
@@ -76,19 +77,7 @@ public class MortControl : MonoBehaviour {
 		}
 		
 	}
-
-    void CameraTargetSnap()
-    {
-        foreach (GameObject target in Targets) 
-        {
-            FPSCam.gameObject.transform.position.Set(target.gameObject.transform.position.x + x_offset, 
-                target.gameObject.transform.position.y + y_offset, 
-                target.gameObject.transform.position.z + z_offset);
-            Counter(count_time);
-        } 
-    }
-
-
+	
 	void FireProjectile()
 	{
 		AudioSource.PlayClipAtPoint(fire,this.transform.position) ;
@@ -96,7 +85,7 @@ public class MortControl : MonoBehaviour {
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
 		projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
 	}
-
+	
 	void FixedUpdate()
 	{
 		//Changed fire to F because space was causing selection of input field
@@ -106,13 +95,34 @@ public class MortControl : MonoBehaviour {
 			FireProjectile();
 			
 		}
-        if (Start) 
-        {
-            CameraTargetSnap();
-            Start = false;
-        }
-        
+		
+		
 	}
+	
+	IEnumerator Timer()
+	{
+		yield return new WaitForSeconds(count_time);
+		start_count += 1.0f;
+		
+		
+	}
+	
+	
+	
+	IEnumerator CamMove(float waitTime,GameObject target)
+	{
+
+		FPSCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
+		                                                    target.gameObject.transform.position.y + y_offset, 
+		                                                    target.gameObject.transform.position.z + z_offset);
+
+		print ("here");
+		yield return new WaitForSeconds(waitTime);
+		print ("there");
+		start_count += 1;
+	}
+	// Prints your numbers, waits!
+	
 	// Update is called once per frame
 	void Update () {
 		power = GuiV.GuiText;
@@ -121,9 +131,16 @@ public class MortControl : MonoBehaviour {
 		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
 		{
 			this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
+			
+		}
+		
+		
+		if (start_count >= Targets.Length && start_finished){
+			start_finished = false;
+			FPSCon.SetActive (true);
+			FPSCam.SetActive (false);
 
-		} 
-
-	
+		}
+		
 	}
 }
