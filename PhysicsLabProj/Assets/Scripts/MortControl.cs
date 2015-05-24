@@ -26,11 +26,9 @@ public class MortControl : MonoBehaviour {
 	public AudioClip fire;
 	private GameObject FPSCam;
 	public GameObject FPSCon;
-	private bool fin;
-	private float start_count;
 	private bool start_finished;
-	
-	
+	private bool running;
+
 	//Camera Offset - set the values for camera offset
 	public float x_offset;
 	public float y_offset;
@@ -55,20 +53,17 @@ public class MortControl : MonoBehaviour {
 		this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
 		ShowTargetInformation();
 		FPSCam = GameObject.Find("StartCam");
-		fin = false;
-		start_count = 0.0f;
 		start_finished = true;
+		FPSCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset, Targets [0].transform.position.y + y_offset, Targets [0].transform.position.z + z_offset);
 		
 	}
 	
 	void Start()
 	{
-		foreach (GameObject target in Targets) {
-			StartCoroutine(CamMove (count_time,target)); 
-			print ("run");
+		running = false;
+		StartCoroutine (ExecuteIndefinitely ());
 			
 		}
-	}
 	void ShowTargetInformation()
 	{
 		foreach (GameObject target in Targets)
@@ -99,30 +94,29 @@ public class MortControl : MonoBehaviour {
 		
 	}
 	
-	IEnumerator Timer()
-	{
-		yield return new WaitForSeconds(count_time);
-		start_count += 1.0f;
-		
-		
-	}
 	
+	IEnumerator ExecuteIndefinitely()
+	{   
+		int ind = 0;
+		while (true)
+		{   
+			if (ind == Targets.Length)
+			{
+				break;
+			}
+			else
+			{
+				GameObject target = Targets[ind];
+			FPSCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
+			                                                    target.gameObject.transform.position.y + y_offset, 
+			                                                    target.gameObject.transform.position.z + z_offset);
+				ind +=1;
+			yield return new WaitForSeconds(count_time);
+			}
+		}   
+	} 
 	
-	
-	IEnumerator CamMove(float waitTime,GameObject target)
-	{
 
-		FPSCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
-		                                                    target.gameObject.transform.position.y + y_offset, 
-		                                                    target.gameObject.transform.position.z + z_offset);
-
-		print ("here");
-		yield return new WaitForSeconds(waitTime);
-		print ("there");
-		start_count += 1;
-	}
-	// Prints your numbers, waits!
-	
 	// Update is called once per frame
 	void Update () {
 		power = GuiV.GuiText;
@@ -134,8 +128,8 @@ public class MortControl : MonoBehaviour {
 			
 		}
 		
-		
-		if (start_count >= Targets.Length && start_finished){
+
+		if (Time.time >= Targets.Length*count_time && start_finished){
 			start_finished = false;
 			FPSCon.SetActive (true);
 			FPSCam.SetActive (false);
