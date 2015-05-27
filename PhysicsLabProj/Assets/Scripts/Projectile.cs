@@ -28,7 +28,8 @@ public class Projectile : MonoBehaviour {
 		{
 			Camera1.enabled = true;
 			Camera2.enabled = false;
-			
+
+			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
 			Destroy(this.gameObject,time_to_die);
@@ -46,7 +47,9 @@ public class Projectile : MonoBehaviour {
 			GameObject.Find("FullMortar").GetComponent<MortarControl>().shot_remains = false;
 			Camera1.enabled = true;
 			Camera2.enabled = false;
-			
+
+
+			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
 			Destroy(this.gameObject,time_to_die);
@@ -70,6 +73,8 @@ public class Projectile : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Target")
 		{
+
+			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
 			Camera2.enabled = false;

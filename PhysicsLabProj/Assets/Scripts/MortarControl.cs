@@ -6,9 +6,9 @@ public class MortarControl : MonoBehaviour {
 
 	public float angle_z = -45.0f;
 	public float angle_y = 0.0f;
-	public float max_y = 90.0f;
+	public float max_y = 360.0f;
 	public float max_x = 90.0f;
-	public float min_y = 0.0f;
+	public float min_y = -360.0f;
 	public float min_x = 0.0f;
 	public Vector3 start_force;
 	public InputField input_y;
@@ -32,7 +32,7 @@ public class MortarControl : MonoBehaviour {
     void Start () {
         shot_remains = false;
 		start_position = this.transform.position;
-		transform.RotateAround (start_position, Vector3.right, 90-angle_y);
+		transform.RotateAround (start_position, Vector3.right, angle_y);
         Targets = GameObject.FindGameObjectsWithTag("Target");
         distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
         GuiV = GameObject.Find("Velocity").GetComponentInChildren<TextGui>();
@@ -58,7 +58,7 @@ public class MortarControl : MonoBehaviour {
     {
         shot_remains = true;
         launch_force.Set(0f,
-                             90-angle_y,
+                             angle_y,
 		                 angle_z);
         Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
         projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
@@ -87,7 +87,7 @@ public class MortarControl : MonoBehaviour {
         if (angle_y <= max_y && angle_z <= max_x && angle_y >= min_y && angle_z >= min_x){
 
 	        this.transform.rotation = Quaternion.identity;
-		    transform.RotateAround (start_position, Vector3.forward, 90-angle_y);
+		    transform.RotateAround (start_position, Vector3.forward, angle_y);
 		}
 		else
 		{

@@ -13,9 +13,9 @@ public class MortControl : MonoBehaviour {
 	public GameObject[] Targets;
 	public Rigidbody projectile;
 	public Vector3 launch_force;
-	public float max_y = 89.0f;
+	public float max_y = 360.0f;
 	public float max_z = 90.0f;
-	public float min_y = 0.0f;
+	public float min_y = -360.0f;
 	public float min_z = 0.0f;
 	public float power;
 	public float input_y;
@@ -27,7 +27,7 @@ public class MortControl : MonoBehaviour {
 	private GameObject FPSCam;
 	public GameObject FPSCon;
 	private bool start_finished;
-	private bool running;
+	public int shot_count;
 
 	//Camera Offset - set the values for camera offset
 	public float x_offset;
@@ -41,6 +41,7 @@ public class MortControl : MonoBehaviour {
 	
 	// Use this for initialization
 	void Awake () {
+		shot_count = 0;
 		mort = true;
 		Targets = GameObject.FindGameObjectsWithTag("Target");
 		distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
@@ -60,7 +61,6 @@ public class MortControl : MonoBehaviour {
 	
 	void Start()
 	{
-		running = false;
 		StartCoroutine (ExecuteIndefinitely ());
 			
 		}
@@ -68,13 +68,14 @@ public class MortControl : MonoBehaviour {
 	{
 		foreach (GameObject target in Targets)
 		{
-			distance.text+= string.Format("Distance to Target: {0} \n",this.transform.position - target.transform.position );
+			distance.text+= string.Format("{0}: {1} \n",target.gameObject.name,this.transform.position - target.transform.position );
 		}
 		
 	}
 	
 	void FireProjectile()
 	{
+		shot_count = 1;
 		AudioSource.PlayClipAtPoint(fire,this.transform.position) ;
 		launch_force = Vector3.forward;
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
@@ -84,7 +85,7 @@ public class MortControl : MonoBehaviour {
 	void FixedUpdate()
 	{
 		//Changed fire to F because space was causing selection of input field
-		if (Input.GetKey(KeyCode.F) && IntroScript.intro_over && Player.freeze == true && mort)
+		if (Input.GetKey(KeyCode.F) && IntroScript.intro_over && Player.freeze == true && shot_count == 0)
 		{
 			mort = false;
 			FireProjectile();
