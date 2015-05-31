@@ -55,7 +55,9 @@ public class MortControl : MonoBehaviour {
 		ShowTargetInformation();
 		FPSCam = GameObject.Find("StartCam");
 		start_finished = true;
-		FPSCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset, Targets [0].transform.position.y + y_offset, Targets [0].transform.position.z + z_offset);
+		FPSCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset,
+            Targets [0].transform.position.y + y_offset,
+            Targets [0].transform.position.z + z_offset);
 		
 	}
 	
