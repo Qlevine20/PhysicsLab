@@ -28,11 +28,26 @@ public class MortControl : MonoBehaviour {
 	public GameObject FPSCon;
 	private bool start_finished;
 	public int shot_count;
+	private GameObject currmort;
+
+
+
+
+
+	//Mortar Rotation Objects
+	public GameObject MortarMin;
+	public GameObject MortarOverMin;
+	public GameObject MortarUnderMid;
+	public GameObject MortarMid;
+	public GameObject MortarOverMid;
+	public GameObject MortarUnderMax;
+	public GameObject MortarMax;
 
 	//Camera Offset - set the values for camera offset
 	public float x_offset;
 	public float y_offset;
 	public float z_offset;
+
 	
 	
 	
@@ -41,6 +56,7 @@ public class MortControl : MonoBehaviour {
 	
 	// Use this for initialization
 	void Awake () {
+		currmort = MortarMid;
 		shot_count = 0;
 		mort = true;
 		Targets = GameObject.FindGameObjectsWithTag("Target");
@@ -125,12 +141,63 @@ public class MortControl : MonoBehaviour {
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
-		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
+
+		if (20 > input_z && input_z >= 0)
 		{
-			this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
-			
+			currmort.SetActive(false);
+			MortarMin.SetActive (true);
+			currmort = MortarMin;
 		}
+
+		if (30 > input_z && input_z >= 20)
+		{
+			currmort.SetActive(false);
+			MortarOverMin.SetActive (true);
+			currmort = MortarOverMin;
+		}
+
+		if (40 > input_z && input_z >= 30)
+		{
+			currmort.SetActive(false);
+			MortarUnderMid.SetActive (true);
+			currmort = MortarUnderMid;
+		}
+
+
 		
+		if (50 > input_z && input_z >= 40)
+		{
+			currmort.SetActive(false);
+			MortarMid.SetActive (true);
+			currmort = MortarMid;
+		}
+
+		if (60 > input_z && input_z >= 50)
+		{
+			currmort.SetActive(false);
+			MortarOverMid.SetActive (true);
+			currmort = MortarOverMid;
+		}
+
+		if (70 > input_z && input_z >= 60)
+		{
+			currmort.SetActive(false);
+			MortarUnderMax.SetActive (true);
+			currmort = MortarUnderMax;
+		}
+
+		if (81 > input_z && input_z >= 70)
+		{
+			currmort.SetActive(false);
+			MortarMax.SetActive (true);
+			currmort = MortarMax;
+		}
+//		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
+//		{
+//			this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
+//			
+//		}
+//		
 
 		if (Time.time >= Targets.Length*count_time && start_finished){
 			start_finished = false;
