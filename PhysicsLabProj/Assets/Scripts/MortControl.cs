@@ -95,9 +95,10 @@ public class MortControl : MonoBehaviour {
 	{
 		shot_count = 1;
 		AudioSource.PlayClipAtPoint(fire,this.transform.position) ;
-		launch_force = Vector3.forward;
+		launch_force = new Vector3 (0.0f, input_z/90, 1 - (input_z/360));
+		print (launch_force);
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
-		projectileClone.AddRelativeForce(launch_force.normalized * power, ForceMode.Impulse);
+		projectileClone.AddRelativeForce(launch_force * power, ForceMode.Impulse);
 	}
 	
 	void FixedUpdate()
@@ -141,6 +142,12 @@ public class MortControl : MonoBehaviour {
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
+		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
+			//		{
+						this.transform.rotation = Quaternion.Euler (0.0f,input_y,0.0f);
+			//			
+			//		}
+
 
 		if (20 > input_z && input_z >= 0)
 		{
@@ -192,11 +199,6 @@ public class MortControl : MonoBehaviour {
 			MortarMax.SetActive (true);
 			currmort = MortarMax;
 		}
-//		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
-//		{
-//			this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
-//			
-//		}
 //		
 
 		if (Time.time >= Targets.Length*count_time && start_finished){
