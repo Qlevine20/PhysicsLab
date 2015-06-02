@@ -10,12 +10,14 @@ public class Projectile : MonoBehaviour {
 	private bool touching;
 	private Camera Camera1;
 	private Camera Camera2;
+	private string dtext;
 	
 	void Start()
 	{
 		Camera1 = GameObject.FindGameObjectWithTag("MortarCam").GetComponent<Camera>();
 		Camera2 = this.GetComponentInChildren<Camera>();
 		count = 0;
+		dtext = GameObject.Find("Mortar").GetComponent<MortControl>().distance.text = "";
 	}
 	
 	void destroy_count()
@@ -79,10 +81,16 @@ public class Projectile : MonoBehaviour {
 			Instantiate(explosion, transform.position, transform.localRotation);
 			Camera2.enabled = false;
 			Camera1.enabled = true;
-			Destroy(this.gameObject,time_to_die);
-			GameObject.FindGameObjectWithTag("Mortar").GetComponent<MortControl>().distance.text = "";
-			GameObject.FindGameObjectWithTag("Mortar").GetComponent<MortControl>().ShowTargetInformation ();
+			dtext = "";
+			print (dtext);
+
+			Destroy(collider.gameObject);
+			GameObject.Find("Mortar").GetComponent<MortControl>().ShowTargetInformation ();
 			print("Winner");
+
+			Destroy(this.gameObject,time_to_die);
+
+		
 		}
 		else
 		{

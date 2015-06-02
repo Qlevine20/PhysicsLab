@@ -84,6 +84,7 @@ public class MortControl : MonoBehaviour {
 		}
 	public void ShowTargetInformation()
 	{
+		distance.text = "";
 		foreach (GameObject target in Targets)
 		{
 			distance.text+= string.Format("{0}: {1} \n",target.gameObject.name,this.transform.position - target.transform.position );
@@ -142,6 +143,9 @@ public class MortControl : MonoBehaviour {
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
+		Targets = GameObject.FindGameObjectsWithTag("Target");
+
+		ShowTargetInformation ();
 		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
 			//		{
 						this.transform.rotation = Quaternion.Euler (0.0f,input_y,0.0f);
