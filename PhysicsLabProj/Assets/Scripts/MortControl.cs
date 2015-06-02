@@ -82,7 +82,7 @@ public class MortControl : MonoBehaviour {
 		StartCoroutine (ExecuteIndefinitely ());
 			
 		}
-	void ShowTargetInformation()
+	public void ShowTargetInformation()
 	{
 		foreach (GameObject target in Targets)
 		{

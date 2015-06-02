@@ -26,6 +26,7 @@ public class MortarControl : MonoBehaviour {
 	public AudioSource fire;
 
 
+
     //for tracking previous inputs
 
     // Use this for initialization

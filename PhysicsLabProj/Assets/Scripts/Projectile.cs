@@ -80,7 +80,8 @@ public class Projectile : MonoBehaviour {
 			Camera2.enabled = false;
 			Camera1.enabled = true;
 			Destroy(this.gameObject,time_to_die);
-			Destroy(collider.gameObject,destroy_delay); 
+			GameObject.FindGameObjectWithTag("Mortar").GetComponent<MortControl>().distance.text = "";
+			GameObject.FindGameObjectWithTag("Mortar").GetComponent<MortControl>().ShowTargetInformation ();
 			print("Winner");
 		}
 		else
