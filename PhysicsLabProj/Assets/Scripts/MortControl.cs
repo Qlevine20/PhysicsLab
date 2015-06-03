@@ -24,7 +24,8 @@ public class MortControl : MonoBehaviour {
 	public bool change;
 	public float count_time; // used in Counter() to determine the length of time to wait
 	public AudioClip fire;
-	private GameObject FPSCam;
+	private Camera currcam;
+	private GameObject StartCam;
 	public GameObject FPSCon;
 	private bool start_finished;
 	public int shot_count;
@@ -69,9 +70,9 @@ public class MortControl : MonoBehaviour {
 		input_z = GuiZ.GuiText;
 		this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
 		ShowTargetInformation();
-		FPSCam = GameObject.Find("StartCam");
+		StartCam = GameObject.Find("StartCam");
 		start_finished = true;
-		FPSCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset,
+		StartCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset,
             Targets [0].transform.position.y + y_offset,
             Targets [0].transform.position.z + z_offset);
 		
@@ -97,7 +98,6 @@ public class MortControl : MonoBehaviour {
 		shot_count = 1;
 		AudioSource.PlayClipAtPoint(fire,this.transform.position) ;
 		launch_force = new Vector3 (0.0f, input_z/90, 1 - (input_z/360));
-		print (launch_force);
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
 		projectileClone.AddRelativeForce(launch_force * power, ForceMode.Impulse);
 	}
@@ -128,7 +128,7 @@ public class MortControl : MonoBehaviour {
 			else
 			{
 				GameObject target = Targets[ind];
-			FPSCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
+			StartCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
 			                                                    target.gameObject.transform.position.y + y_offset, 
 			                                                    target.gameObject.transform.position.z + z_offset);
 				ind +=1;
@@ -208,7 +208,7 @@ public class MortControl : MonoBehaviour {
 		if (Time.time >= Targets.Length*count_time && start_finished){
 			start_finished = false;
 			FPSCon.SetActive (true);
-			FPSCam.SetActive (false);
+			StartCam.SetActive (false);
 
 		}
 		
