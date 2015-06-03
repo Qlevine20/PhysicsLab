@@ -74,6 +74,14 @@ public class Projectile : MonoBehaviour {
 	
 	void OnCollisionEnter(Collision collider)
 	{
+
+		if (collider.gameObject.tag == "Fall") {
+			Destroy(this.gameObject,time_to_die);
+			Rigidbody[] Rbs = collider.gameObject.GetComponentsInChildren<Rigidbody>();
+			foreach(Rigidbody Rb in Rbs){
+				Rb.isKinematic = false;
+			}
+		}
 		if (collider.gameObject.tag == "Target")
 		{
 			
@@ -86,7 +94,6 @@ public class Projectile : MonoBehaviour {
 			
 			Destroy(collider.gameObject);
 			GameObject.Find("Mortar").GetComponent<MortControl>().ShowTargetInformation ();
-			print("Winner");
 			
 			Destroy(this.gameObject,time_to_die);
 			

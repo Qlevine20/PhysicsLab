@@ -31,7 +31,8 @@ public class MortControl : MonoBehaviour {
 	public int shot_count;
 	private GameObject currmort;
 	private int new_score;
-	
+	private int target_length;
+	private GameObject[] Fall;
 	
 	
 	
@@ -58,7 +59,16 @@ public class MortControl : MonoBehaviour {
 	
 	// Use this for initialization
 	void Awake () {
+
 		GameObject.Find ("Score").GetComponent<Score> ().score = new_score.ToString();
+		Fall = GameObject.FindGameObjectsWithTag ("Fall");
+		foreach (GameObject f in Fall) {
+			Rigidbody[] Rbs = f.gameObject.GetComponentsInChildren<Rigidbody>();
+			foreach(Rigidbody Rb in Rbs){
+				Rb.isKinematic = true;
+		}
+
+		}
 		new_score = 0;
 		currmort = MortarMid;
 		shot_count = 0;
@@ -141,14 +151,31 @@ public class MortControl : MonoBehaviour {
 			}
 		}   
 	} 
-	
+
+
+	void EndGame()
+	{
+		GameObject.Find ("TopDownCam").GetComponent<Camera> ().enabled = true;
+		GameObject.Find ("WinText").GetComponent<Text> ().enabled = true;
+		FPSCon.SetActive (false);
+		GameObject.Find ("FullMortar").SetActive (false);
+	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
+		target_length = Targets.GetLength(0);
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
 		Targets = GameObject.FindGameObjectsWithTag("Target");
+
+
+		if (target_length <= 0) 
+		{
+			EndGame ();
+		}
 		
 		ShowTargetInformation ();
 		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 

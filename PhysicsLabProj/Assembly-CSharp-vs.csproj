@@ -132,7 +132,6 @@
      <Compile Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
      <Compile Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\ParticleSystems\Scripts\ParticleSystemMultiplier.cs" />
      <Compile Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\ParticleSystems\Scripts\SmokeParticles.cs" />
-     <Compile Include="Assets\Score.cs" />
      <Compile Include="Assets\Scripts\DustScript.cs" />
      <Compile Include="Assets\Scripts\Explosions.cs" />
      <Compile Include="Assets\Scripts\IntroScript.cs" />
@@ -141,6 +140,7 @@
      <Compile Include="Assets\Scripts\MortarControl.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\TextGui.cs" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Imports\FOR REDISTRIBUTION\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
