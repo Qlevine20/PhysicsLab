@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 
 
@@ -10,14 +11,12 @@ public class Projectile : MonoBehaviour {
 	private bool touching;
 	private Camera Camera1;
 	private Camera Camera2;
-	private string dtext;
 	
 	void Start()
 	{
-		Camera1 = GameObject.FindGameObjectWithTag("MortarCam").GetComponent<Camera>();
+		Camera1 = GameObject.Find("MortCamera").GetComponent<Camera>();
 		Camera2 = this.GetComponentInChildren<Camera>();
 		count = 0;
-		dtext = GameObject.Find("Mortar").GetComponent<MortControl>().distance.text = "";
 	}
 	
 	void destroy_count()
@@ -28,9 +27,11 @@ public class Projectile : MonoBehaviour {
 		}
 		else
 		{
-			Camera1.enabled = true;
 			Camera2.enabled = false;
-
+			if (!GameObject.FindGameObjectWithTag("TopDownCam").GetComponent<Camera>().enabled)
+			{
+				Camera1.enabled = true;
+			}
 			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
@@ -49,8 +50,8 @@ public class Projectile : MonoBehaviour {
 			GameObject.Find("FullMortar").GetComponent<MortarControl>().shot_remains = false;
 			Camera1.enabled = true;
 			Camera2.enabled = false;
-
-
+			
+			
 			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
@@ -75,22 +76,21 @@ public class Projectile : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Target")
 		{
-
+			
 			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
 			Camera2.enabled = false;
 			Camera1.enabled = true;
-			dtext = "";
-			print (dtext);
-
+			
+			
 			Destroy(collider.gameObject);
 			GameObject.Find("Mortar").GetComponent<MortControl>().ShowTargetInformation ();
 			print("Winner");
-
+			
 			Destroy(this.gameObject,time_to_die);
-
-		
+			
+			
 		}
 		else
 		{

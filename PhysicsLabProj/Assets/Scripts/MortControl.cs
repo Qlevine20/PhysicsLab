@@ -24,16 +24,18 @@ public class MortControl : MonoBehaviour {
 	public bool change;
 	public float count_time; // used in Counter() to determine the length of time to wait
 	public AudioClip fire;
-	private GameObject FPSCam;
+	private Camera currcam;
+	private GameObject StartCam;
 	public GameObject FPSCon;
 	private bool start_finished;
 	public int shot_count;
 	private GameObject currmort;
-
-
-
-
-
+	private int new_score;
+	
+	
+	
+	
+	
 	//Mortar Rotation Objects
 	public GameObject MortarMin;
 	public GameObject MortarOverMin;
@@ -42,12 +44,12 @@ public class MortControl : MonoBehaviour {
 	public GameObject MortarOverMid;
 	public GameObject MortarUnderMax;
 	public GameObject MortarMax;
-
+	
 	//Camera Offset - set the values for camera offset
 	public float x_offset;
 	public float y_offset;
 	public float z_offset;
-
+	
 	
 	
 	
@@ -56,6 +58,8 @@ public class MortControl : MonoBehaviour {
 	
 	// Use this for initialization
 	void Awake () {
+		GameObject.Find ("Score").GetComponent<Score> ().score = new_score.ToString();
+		new_score = 0;
 		currmort = MortarMid;
 		shot_count = 0;
 		mort = true;
@@ -69,19 +73,19 @@ public class MortControl : MonoBehaviour {
 		input_z = GuiZ.GuiText;
 		this.transform.rotation = Quaternion.Euler (-input_z,input_y,0.0f);
 		ShowTargetInformation();
-		FPSCam = GameObject.Find("StartCam");
+		StartCam = GameObject.Find("StartCam");
 		start_finished = true;
-		FPSCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset,
-            Targets [0].transform.position.y + y_offset,
-            Targets [0].transform.position.z + z_offset);
+		StartCam.transform.position = new Vector3 (Targets [0].transform.position.x + x_offset,
+		                                           Targets [0].transform.position.y + y_offset,
+		                                           Targets [0].transform.position.z + z_offset);
 		
 	}
 	
 	void Start()
 	{
 		StartCoroutine (ExecuteIndefinitely ());
-			
-		}
+		
+	}
 	public void ShowTargetInformation()
 	{
 		distance.text = "";
@@ -95,9 +99,10 @@ public class MortControl : MonoBehaviour {
 	void FireProjectile()
 	{
 		shot_count = 1;
+		new_score += 1;
+		GameObject.Find ("Score").GetComponent<Score> ().score = new_score.ToString();
 		AudioSource.PlayClipAtPoint(fire,this.transform.position) ;
 		launch_force = new Vector3 (0.0f, input_z/90, 1 - (input_z/360));
-		print (launch_force);
 		Rigidbody projectileClone = (Rigidbody) Instantiate(projectile, transform.position, transform.localRotation);
 		projectileClone.AddRelativeForce(launch_force * power, ForceMode.Impulse);
 	}
@@ -128,53 +133,53 @@ public class MortControl : MonoBehaviour {
 			else
 			{
 				GameObject target = Targets[ind];
-			FPSCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
-			                                                    target.gameObject.transform.position.y + y_offset, 
-			                                                    target.gameObject.transform.position.z + z_offset);
+				StartCam.gameObject.transform.position = new Vector3 (target.gameObject.transform.position.x + x_offset, 
+				                                                      target.gameObject.transform.position.y + y_offset, 
+				                                                      target.gameObject.transform.position.z + z_offset);
 				ind +=1;
-			yield return new WaitForSeconds(count_time);
+				yield return new WaitForSeconds(count_time);
 			}
 		}   
 	} 
 	
-
+	
 	// Update is called once per frame
 	void Update () {
 		power = GuiV.GuiText;
 		input_y = GuiY.GuiText;
 		input_z = GuiZ.GuiText;
 		Targets = GameObject.FindGameObjectsWithTag("Target");
-
+		
 		ShowTargetInformation ();
 		if (input_y <= max_y && input_z <= max_z && input_y >= min_y && input_z >= min_z && change) 
 			//		{
-						this.transform.rotation = Quaternion.Euler (0.0f,input_y,0.0f);
-			//			
-			//		}
-
-
+			this.transform.rotation = Quaternion.Euler (0.0f,input_y,0.0f);
+		//			
+		//		}
+		
+		
 		if (20 > input_z && input_z >= 0)
 		{
 			currmort.SetActive(false);
 			MortarMin.SetActive (true);
 			currmort = MortarMin;
 		}
-
+		
 		if (30 > input_z && input_z >= 20)
 		{
 			currmort.SetActive(false);
 			MortarOverMin.SetActive (true);
 			currmort = MortarOverMin;
 		}
-
+		
 		if (40 > input_z && input_z >= 30)
 		{
 			currmort.SetActive(false);
 			MortarUnderMid.SetActive (true);
 			currmort = MortarUnderMid;
 		}
-
-
+		
+		
 		
 		if (50 > input_z && input_z >= 40)
 		{
@@ -182,35 +187,37 @@ public class MortControl : MonoBehaviour {
 			MortarMid.SetActive (true);
 			currmort = MortarMid;
 		}
-
+		
 		if (60 > input_z && input_z >= 50)
 		{
 			currmort.SetActive(false);
 			MortarOverMid.SetActive (true);
 			currmort = MortarOverMid;
 		}
-
+		
 		if (70 > input_z && input_z >= 60)
 		{
 			currmort.SetActive(false);
 			MortarUnderMax.SetActive (true);
 			currmort = MortarUnderMax;
 		}
-
+		
 		if (81 > input_z && input_z >= 70)
 		{
 			currmort.SetActive(false);
 			MortarMax.SetActive (true);
 			currmort = MortarMax;
 		}
-//		
-
+		//		
+		
 		if (Time.time >= Targets.Length*count_time && start_finished){
 			start_finished = false;
 			FPSCon.SetActive (true);
-			FPSCam.SetActive (false);
-
+			StartCam.SetActive (false);
+			
 		}
 		
 	}
 }
+
+
