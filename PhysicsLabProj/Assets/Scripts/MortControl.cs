@@ -97,7 +97,15 @@ public class MortControl : MonoBehaviour {
 		distance.text = "";
 		foreach (GameObject target in Targets)
 		{
-			distance.text+= string.Format("{0}: {1} \n",target.gameObject.name,this.transform.position - target.transform.position );
+			if (target.gameObject.name == "ShackDestroy")
+			{
+				distance.text+= string.Format("{0}: {1} \n",target.gameObject.name,this.transform.position - new Vector3(target.transform.position.x - (x_offset),target.transform.position.y - (y_offset),target.transform.position.z - (z_offset)));
+			}
+			else
+			{
+				distance.text+= string.Format("{0}: {1} \n",target.gameObject.name,this.transform.position - target.transform.position);
+			}
+
 		}
 		
 	}
