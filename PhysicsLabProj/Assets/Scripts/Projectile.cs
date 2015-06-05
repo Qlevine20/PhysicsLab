@@ -32,10 +32,13 @@ public class Projectile : MonoBehaviour {
 			{
 				Camera1.enabled = true;
 			}
-			GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
-			//Creates explosion object with script "Explosion"
-			Instantiate(explosion, transform.position, transform.localRotation);
-			Destroy(this.gameObject,time_to_die);
+			if(GameObject.Find ("Mortar").GetComponent<MortControl>()!= null)
+			{
+				GameObject.Find ("Mortar").GetComponent<MortControl>().shot_count = 0;
+				//Creates explosion object with script "Explosion"
+				Instantiate(explosion, transform.position, transform.localRotation);
+				Destroy(this.gameObject,time_to_die);
+			}
 		}
 	}
 	
@@ -75,7 +78,7 @@ public class Projectile : MonoBehaviour {
 	void OnCollisionEnter(Collision collider)
 	{
 
-		if (collider.gameObject.tag == "Fall") {
+		if (collider.gameObject.tag == "Target") {
 			Destroy(this.gameObject,time_to_die);
 			Rigidbody[] Rbs = collider.gameObject.GetComponentsInChildren<Rigidbody>();
 			foreach(Rigidbody Rb in Rbs){
@@ -89,10 +92,8 @@ public class Projectile : MonoBehaviour {
 			//Creates explosion object with script "Explosion"
 			Instantiate(explosion, transform.position, transform.localRotation);
 			Camera2.enabled = false;
-			Camera1.enabled = true;
-			
-			
-			Destroy(collider.gameObject);
+
+			collider.gameObject.tag ="Destroyed";
 			GameObject.Find("Mortar").GetComponent<MortControl>().ShowTargetInformation ();
 			
 			Destroy(this.gameObject,time_to_die);

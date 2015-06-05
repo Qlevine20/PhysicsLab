@@ -32,7 +32,6 @@ public class MortControl : MonoBehaviour {
 	private GameObject currmort;
 	private int new_score;
 	private int target_length;
-	private GameObject[] Fall;
 	
 	
 	
@@ -50,30 +49,27 @@ public class MortControl : MonoBehaviour {
 	public float x_offset;
 	public float y_offset;
 	public float z_offset;
-	
-	
-	
-	
-	
-	
+
+
 	
 	// Use this for initialization
 	void Awake () {
 
 		GameObject.Find ("Score").GetComponent<Score> ().score = new_score.ToString();
-		Fall = GameObject.FindGameObjectsWithTag ("Fall");
-		foreach (GameObject f in Fall) {
-			Rigidbody[] Rbs = f.gameObject.GetComponentsInChildren<Rigidbody>();
-			foreach(Rigidbody Rb in Rbs){
-				Rb.isKinematic = true;
-		}
 
-		}
 		new_score = 0;
 		currmort = MortarMid;
 		shot_count = 0;
 		mort = true;
 		Targets = GameObject.FindGameObjectsWithTag("Target");
+
+		foreach (GameObject f in Targets) {
+			Rigidbody[] Rbs = f.gameObject.GetComponentsInChildren<Rigidbody>();
+			foreach(Rigidbody Rb in Rbs){
+				Rb.isKinematic = true;
+			}
+			
+		}
 		distance = GameObject.Find("DistanceUI").GetComponentInChildren<Text>();
 		GuiY = GameObject.Find ("TextGuiY").GetComponent<TextGui> ();
 		GuiZ = GameObject.Find ("TextGuiZ").GetComponent<TextGui> ();
@@ -105,7 +101,10 @@ public class MortControl : MonoBehaviour {
 		}
 		
 	}
-	
+
+
+
+
 	void FireProjectile()
 	{
 		shot_count = 1;
